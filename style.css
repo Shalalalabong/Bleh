@@ -10,11 +10,9 @@ body{
 
     width:100%;
     height:100vh;
-
     overflow:hidden;
 
     background:
-
     radial-gradient(
         circle at top,
         #d88cff,
@@ -48,7 +46,6 @@ body{
 }
 
 
-
 .background::before{
 
     content:"";
@@ -72,22 +69,19 @@ body{
 }
 
 
-
 @keyframes starsMove{
 
     from{
-
         transform:translateY(0);
-
     }
 
     to{
-
         transform:translateY(-100px);
-
     }
 
 }
+
+
 
 
 
@@ -104,28 +98,23 @@ body{
 
     inset:0;
 
-
     display:flex;
 
     justify-content:center;
 
     align-items:center;
 
-
     padding:20px;
-
 
     opacity:0;
 
     pointer-events:none;
-
 
     transform:
 
     scale(.92)
 
     translateY(20px);
-
 
     transition:
 
@@ -136,13 +125,11 @@ body{
 }
 
 
-
 .page.active{
 
     opacity:1;
 
     pointer-events:auto;
-
 
     transform:
 
@@ -151,6 +138,8 @@ body{
     translateY(0);
 
 }
+
+
 
 
 
@@ -176,6 +165,9 @@ body{
     overflow-y:auto;
 
 
+    margin:auto;
+
+
     padding:35px;
 
 
@@ -187,9 +179,7 @@ body{
     rgba(25,0,45,.55);
 
 
-    backdrop-filter:
-
-    blur(15px);
+    backdrop-filter:blur(15px);
 
 
     border:
@@ -208,6 +198,15 @@ body{
     animation:
 
     cardGlow 4s infinite;
+
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
 
 }
 
@@ -239,6 +238,23 @@ body{
 
 
 
+
+
+/* ==========================
+   PROPOSAL FIX
+========================== */
+
+
+.proposal{
+
+    display:block;
+
+}
+
+
+
+
+
 /* ==========================
    TEXT
 ========================== */
@@ -246,25 +262,20 @@ body{
 
 h1{
 
-
     font-size:
 
     clamp(2rem,5vw,3.5rem);
 
-
     margin-bottom:25px;
-
 
     color:#ffe1ff;
 
 
     text-shadow:
 
-
     0 0 10px #ff8de8,
 
     0 0 25px #ff8de8;
-
 
 }
 
@@ -282,16 +293,15 @@ h2{
 
 p{
 
-
     color:#fff2ff;
 
-
     font-size:1.15rem;
-
 
     line-height:1.8;
 
 }
+
+
 
 
 
@@ -304,9 +314,7 @@ p{
 
 button{
 
-
     margin:12px;
-
 
     padding:
 
@@ -345,7 +353,6 @@ button{
     );
 
 
-
     box-shadow:
 
 
@@ -353,7 +360,6 @@ button{
 
 
     transition:.35s;
-
 
 }
 
@@ -376,7 +382,6 @@ button:hover{
     0 0 45px #ffc2ff;
 
 }
-
 
 
 button:active{
@@ -425,7 +430,6 @@ button:active{
 
     kuromiFloat 7s ease-in-out infinite;
 
-
 }
 
 
@@ -440,7 +444,6 @@ button:active{
 }
 
 
-
 .sticker-two{
 
     top:10%;
@@ -450,7 +453,6 @@ button:active{
     animation-delay:2s;
 
 }
-
 
 
 .sticker-three{
@@ -464,7 +466,6 @@ button:active{
 }
 
 
-
 .sticker-four{
 
     bottom:5%;
@@ -474,7 +475,6 @@ button:active{
     animation-delay:1s;
 
 }
-
 
 
 
@@ -511,7 +511,7 @@ button:active{
 
 
 /* ==========================
-   PHOTO POLAROID
+   PHOTO
 ========================== */
 
 
@@ -537,9 +537,6 @@ button:active{
 
 
     border-radius:10px;
-
-
-    border:0;
 
 
     box-shadow:
@@ -589,35 +586,6 @@ button:active{
 
 
 
-
-
-
-/* ==========================
-   PROPOSAL PAGE
-========================== */
-
-
-.proposal{
-
-
-    background:
-
-    rgba(255,230,255,.08);
-
-}
-
-
-
-.proposal p{
-
-
-    text-align:center;
-
-
-    font-size:1.25rem;
-
-
-}
 
 
 
@@ -684,8 +652,9 @@ button:active{
 
 
 
+
 /* ==========================
-   FLOATING HEARTS
+   HEARTS
 ========================== */
 
 
@@ -748,13 +717,13 @@ button:active{
 
 
 
+
 /* ==========================
-   YES CELEBRATION CANVAS
+   CONFETTI
 ========================== */
 
 
 #confettiCanvas{
-
 
     position:fixed;
 
@@ -780,7 +749,6 @@ button:active{
 
 .black-page{
 
-
     background:black;
 
 }
@@ -789,16 +757,14 @@ button:active{
 
 .black-page h1{
 
-
     color:white;
 
-
     text-shadow:none;
-
 
     font-size:5rem;
 
 }
+
 
 
 
@@ -816,10 +782,9 @@ button:active{
 
     .content{
 
+        width:94%;
 
         padding:22px;
-
-        width:94%;
 
     }
 
@@ -843,9 +808,7 @@ button:active{
 
     .main-photo{
 
-
         max-width:75vw;
-
 
         max-height:32vh;
 
@@ -855,12 +818,9 @@ button:active{
 
     button{
 
-
         display:block;
 
-
         width:85%;
-
 
         margin:10px auto;
 
@@ -869,7 +829,6 @@ button:active{
 
 
     .kuromi-sticker{
-
 
         width:75px;
 
