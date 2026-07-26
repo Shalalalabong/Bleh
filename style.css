@@ -10,6 +10,7 @@ body{
 
     width:100%;
     height:100vh;
+
     overflow:hidden;
 
     background:
@@ -26,8 +27,6 @@ body{
 
 
 
-
-
 /* ==========================
    BACKGROUND
 ========================== */
@@ -35,7 +34,7 @@ body{
 
 .background{
 
-    position:absolute;
+    position:fixed;
 
     inset:0;
 
@@ -58,7 +57,7 @@ body{
 
     radial-gradient(
         circle,
-        rgba(255,255,255,.15) 1px,
+        rgba(255,255,255,.18) 1px,
         transparent 2px
     );
 
@@ -85,18 +84,17 @@ body{
 
 
 
-
-
 /* ==========================
-   PAGES
+   PAGE CENTERING
 ========================== */
 
 
 .page{
 
-    position:absolute;
+    position:fixed;
 
     inset:0;
+
 
     display:flex;
 
@@ -104,25 +102,26 @@ body{
 
     align-items:center;
 
+
     padding:20px;
+
 
     opacity:0;
 
     pointer-events:none;
 
-    transform:
 
-    scale(.92)
+    transform:scale(.95);
 
-    translateY(20px);
 
     transition:
 
-    opacity .7s ease,
+    opacity .6s ease,
 
-    transform .7s ease;
+    transform .6s ease;
 
 }
+
 
 
 .page.active{
@@ -131,11 +130,8 @@ body{
 
     pointer-events:auto;
 
-    transform:
 
-    scale(1)
-
-    translateY(0);
+    transform:scale(1);
 
 }
 
@@ -144,28 +140,16 @@ body{
 
 
 
-
-
 /* ==========================
-   CONTENT CARD
+   MAIN CARD
 ========================== */
 
 
 .content{
 
-
     width:90%;
 
     max-width:850px;
-
-
-    max-height:88vh;
-
-
-    overflow-y:auto;
-
-
-    margin:auto;
 
 
     padding:35px;
@@ -176,7 +160,7 @@ body{
 
     background:
 
-    rgba(25,0,45,.55);
+    rgba(25,0,45,.6);
 
 
     backdrop-filter:blur(15px);
@@ -184,70 +168,35 @@ body{
 
     border:
 
-    2px solid rgba(255,200,255,.35);
+    2px solid rgba(255,200,255,.3);
 
 
     box-shadow:
 
-
-    0 0 40px rgba(255,130,240,.45),
-
-    inset 0 0 30px rgba(255,255,255,.08);
-
-
-    animation:
-
-    cardGlow 4s infinite;
+    0 0 40px rgba(255,130,240,.45);
 
 
     display:flex;
 
+
     flex-direction:column;
+
 
     justify-content:center;
 
+
     align-items:center;
 
-}
 
-
-
-@keyframes cardGlow{
-
-
-    0%,100%{
-
-        box-shadow:
-
-        0 0 40px rgba(255,130,240,.45);
-
-    }
-
-
-    50%{
-
-        box-shadow:
-
-        0 0 70px rgba(255,130,240,.75);
-
-    }
+    text-align:center;
 
 }
 
 
 
+.content > *{
 
-
-
-
-/* ==========================
-   PROPOSAL FIX
-========================== */
-
-
-.proposal{
-
-    display:block;
+    max-width:100%;
 
 }
 
@@ -266,12 +215,15 @@ h1{
 
     clamp(2rem,5vw,3.5rem);
 
+
     margin-bottom:25px;
+
 
     color:#ffe1ff;
 
 
     text-shadow:
+
 
     0 0 10px #ff8de8,
 
@@ -283,9 +235,9 @@ h1{
 
 h2{
 
-    color:#ffd6ff;
-
     margin-bottom:20px;
+
+    color:#ffd6ff;
 
 }
 
@@ -295,7 +247,9 @@ p{
 
     color:#fff2ff;
 
+
     font-size:1.15rem;
+
 
     line-height:1.8;
 
@@ -316,9 +270,8 @@ button{
 
     margin:12px;
 
-    padding:
 
-    15px 40px;
+    padding:15px 40px;
 
 
     border:none;
@@ -359,7 +312,7 @@ button{
     0 0 20px #ff8de8;
 
 
-    transition:.35s;
+    transition:.3s;
 
 }
 
@@ -367,33 +320,44 @@ button{
 
 button:hover{
 
-
     transform:
 
-
-    translateY(-6px)
+    translateY(-5px)
 
     scale(1.08);
 
 
     box-shadow:
 
-
-    0 0 45px #ffc2ff;
+    0 0 40px #ffc2ff;
 
 }
+
 
 
 button:active{
 
-
-    transform:
-
-    scale(.95);
+    transform:scale(.95);
 
 }
 
 
+
+
+
+/* BUTTON GROUPS */
+
+.buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+}
 
 
 
@@ -407,7 +371,6 @@ button:active{
 
 .kuromi-sticker{
 
-
     position:absolute;
 
 
@@ -420,18 +383,15 @@ button:active{
     filter:
 
     drop-shadow(
-
     0 0 15px #ff9df0
-
     );
 
 
     animation:
 
-    kuromiFloat 7s ease-in-out infinite;
+    kuromiFloat 7s infinite ease-in-out;
 
 }
-
 
 
 
@@ -536,55 +496,47 @@ button:active{
     background:white;
 
 
-    border-radius:10px;
+    border-radius:12px;
 
 
     box-shadow:
 
-
     0 0 35px #ff9df0;
 
 
-    transform:
-
-    rotate(-3deg);
+    margin-bottom:20px;
 
 
-    animation:
-
-    photoFloat 5s infinite ease-in-out;
+    transform:rotate(-3deg);
 
 }
 
 
 
-@keyframes photoFloat{
 
 
-    0%,100%{
-
-        transform:
-
-        rotate(-3deg)
-
-        translateY(0);
-
-    }
+/* ==========================
+   PROPOSAL PAGE
+========================== */
 
 
-    50%{
+.proposal{
 
-        transform:
+    max-height:85vh;
 
-        rotate(3deg)
+    overflow-y:auto;
 
-        translateY(-12px);
-
-    }
+    display:block;
 
 }
 
 
+
+.proposal p{
+
+    text-align:center;
+
+}
 
 
 
@@ -606,10 +558,10 @@ button:active{
     position:absolute;
 
 
-    width:100%;
-
-
     top:20%;
+
+
+    width:100%;
 
 
     text-align:center;
@@ -621,9 +573,7 @@ button:active{
     font-size:45px;
 
 
-    animation:
-
-    sparkle 3s infinite;
+    animation:sparkle 3s infinite;
 
 }
 
@@ -681,9 +631,7 @@ button:active{
     font-size:40px;
 
 
-    animation:
-
-    hearts 8s linear infinite;
+    animation:hearts 8s linear infinite;
 
 }
 
@@ -694,23 +642,18 @@ button:active{
 
     from{
 
-        transform:
-
-        translateY(0);
+        transform:translateY(0);
 
     }
 
 
     to{
 
-        transform:
-
-        translateY(-120vh);
+        transform:translateY(-120vh);
 
     }
 
 }
-
 
 
 
@@ -741,9 +684,8 @@ button:active{
 
 
 
-
 /* ==========================
-   BLACK END
+   END PAGE
 ========================== */
 
 
@@ -771,7 +713,6 @@ button:active{
 
 
 
-
 /* ==========================
    MOBILE
 ========================== */
@@ -789,13 +730,11 @@ button:active{
     }
 
 
-
     h1{
 
         font-size:2rem;
 
     }
-
 
 
     p{
@@ -805,27 +744,33 @@ button:active{
     }
 
 
-
     .main-photo{
 
+
         max-width:75vw;
+
 
         max-height:32vh;
 
     }
 
 
-
     button{
 
-        display:block;
+        width:auto;
 
-        width:85%;
-
-        margin:10px auto;
+        min-width:160px;
 
     }
 
+
+    .buttons{
+
+        flex-direction:column;
+
+        width:100%;
+
+    }
 
 
     .kuromi-sticker{
