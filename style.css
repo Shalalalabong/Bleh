@@ -27,73 +27,20 @@ body{
 
 
 
-/* ==========================
-   BACKGROUND
-========================== */
-
-
-.background{
-
-    position:fixed;
-
-    inset:0;
-
-    overflow:hidden;
-
-    pointer-events:none;
-
-}
-
-
-.background::before{
-
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    background:
-
-    radial-gradient(
-        circle,
-        rgba(255,255,255,.18) 1px,
-        transparent 2px
-    );
-
-    background-size:50px 50px;
-
-    animation:starsMove 20s linear infinite;
-
-}
-
-
-@keyframes starsMove{
-
-    from{
-        transform:translateY(0);
-    }
-
-    to{
-        transform:translateY(-100px);
-    }
-
-}
-
-
-
 
 
 /* ==========================
-   PAGE CENTERING
+   PAGE SYSTEM (RESTORED)
 ========================== */
 
 
 .page{
 
-    position:fixed;
+    position:absolute;
 
-    inset:0;
+    width:100%;
+
+    height:100%;
 
 
     display:flex;
@@ -111,7 +58,7 @@ body{
     pointer-events:none;
 
 
-    transform:scale(.95);
+    transform:scale(.96);
 
 
     transition:
@@ -140,16 +87,24 @@ body{
 
 
 
+
 /* ==========================
-   MAIN CARD
+   CONTENT BOX
 ========================== */
 
 
 .content{
 
+
     width:90%;
 
     max-width:850px;
+
+
+    max-height:88vh;
+
+
+    overflow-y:auto;
 
 
     padding:35px;
@@ -158,12 +113,15 @@ body{
     border-radius:35px;
 
 
+
     background:
 
-    rgba(25,0,45,.6);
+    rgba(25,0,45,.55);
+
 
 
     backdrop-filter:blur(15px);
+
 
 
     border:
@@ -171,32 +129,15 @@ body{
     2px solid rgba(255,200,255,.3);
 
 
+
     box-shadow:
 
-    0 0 40px rgba(255,130,240,.45);
+
+    0 0 40px rgba(255,130,240,.45),
 
 
-    display:flex;
+    inset 0 0 30px rgba(255,255,255,.08);
 
-
-    flex-direction:column;
-
-
-    justify-content:center;
-
-
-    align-items:center;
-
-
-    text-align:center;
-
-}
-
-
-
-.content > *{
-
-    max-width:100%;
 
 }
 
@@ -227,6 +168,7 @@ h1{
 
     0 0 10px #ff8de8,
 
+
     0 0 25px #ff8de8;
 
 }
@@ -235,9 +177,9 @@ h1{
 
 h2{
 
-    margin-bottom:20px;
-
     color:#ffd6ff;
+
+    margin-bottom:20px;
 
 }
 
@@ -247,9 +189,7 @@ p{
 
     color:#fff2ff;
 
-
     font-size:1.15rem;
-
 
     line-height:1.8;
 
@@ -267,6 +207,7 @@ p{
 
 
 button{
+
 
     margin:12px;
 
@@ -320,11 +261,13 @@ button{
 
 button:hover{
 
+
     transform:
 
     translateY(-5px)
 
     scale(1.08);
+
 
 
     box-shadow:
@@ -345,31 +288,16 @@ button:active{
 
 
 
-/* BUTTON GROUPS */
-
-.buttons{
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    flex-wrap:wrap;
-
-}
-
-
-
 
 
 
 /* ==========================
-   KUROMI STICKERS
+   KUROMI DECORATIONS
 ========================== */
 
 
 .kuromi-sticker{
+
 
     position:absolute;
 
@@ -383,7 +311,9 @@ button:active{
     filter:
 
     drop-shadow(
+
     0 0 15px #ff9df0
+
     );
 
 
@@ -391,7 +321,10 @@ button:active{
 
     kuromiFloat 7s infinite ease-in-out;
 
+
 }
+
+
 
 
 
@@ -402,6 +335,7 @@ button:active{
     left:4%;
 
 }
+
 
 
 .sticker-two{
@@ -415,6 +349,7 @@ button:active{
 }
 
 
+
 .sticker-three{
 
     bottom:8%;
@@ -426,13 +361,12 @@ button:active{
 }
 
 
+
 .sticker-four{
 
     bottom:5%;
 
     right:7%;
-
-    animation-delay:1s;
 
 }
 
@@ -456,7 +390,7 @@ button:active{
 
         transform:
 
-        translateY(-35px)
+        translateY(-30px)
 
         rotate(8deg);
 
@@ -504,9 +438,6 @@ button:active{
     0 0 35px #ff9df0;
 
 
-    margin-bottom:20px;
-
-
     transform:rotate(-3deg);
 
 }
@@ -515,28 +446,23 @@ button:active{
 
 
 
+
+
 /* ==========================
-   PROPOSAL PAGE
+   PROPOSAL
 ========================== */
 
 
 .proposal{
 
-    max-height:85vh;
+
+    max-height:88vh;
 
     overflow-y:auto;
 
-    display:block;
-
 }
 
 
-
-.proposal p{
-
-    text-align:center;
-
-}
 
 
 
@@ -685,7 +611,7 @@ button:active{
 
 
 /* ==========================
-   END PAGE
+   BLACK END
 ========================== */
 
 
@@ -699,9 +625,12 @@ button:active{
 
 .black-page h1{
 
+
     color:white;
 
+
     text-shadow:none;
+
 
     font-size:5rem;
 
@@ -723,11 +652,14 @@ button:active{
 
     .content{
 
+
         width:94%;
+
 
         padding:22px;
 
     }
+
 
 
     h1{
@@ -737,11 +669,13 @@ button:active{
     }
 
 
+
     p{
 
         font-size:1rem;
 
     }
+
 
 
     .main-photo{
@@ -755,25 +689,21 @@ button:active{
     }
 
 
+
     button{
 
-        width:auto;
 
-        min-width:160px;
-
-    }
+        display:block;
 
 
-    .buttons{
-
-        flex-direction:column;
-
-        width:100%;
+        margin:10px auto;
 
     }
+
 
 
     .kuromi-sticker{
+
 
         width:75px;
 
