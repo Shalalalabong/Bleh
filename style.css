@@ -34,18 +34,27 @@ body{
     height:100%;
 
     display:flex;
+
     justify-content:center;
+
     align-items:center;
 
     text-align:center;
 
+    padding:20px;
+
+
     opacity:0;
+
     pointer-events:none;
 
-    transform:scale(.95);
+    transform:scale(.96);
+
 
     transition:
+
     opacity .6s ease,
+
     transform .6s ease;
 
 }
@@ -55,6 +64,7 @@ body{
 .page.active{
 
     opacity:1;
+
     pointer-events:auto;
 
     transform:scale(1);
@@ -64,24 +74,45 @@ body{
 
 
 
+
+
+/* =========================
+   CONTENT BOX
+========================= */
+
+
 .content{
 
     width:90%;
+
     max-width:900px;
+
+    max-height:90vh;
+
 
     padding:30px;
 
+
+    overflow-y:auto;
+
+
     background:
+
     rgba(30,0,50,.45);
+
 
     border-radius:30px;
 
+
     backdrop-filter:blur(10px);
 
+
     box-shadow:
+
     0 0 40px rgba(255,150,255,.35);
 
 }
+
 
 
 
@@ -97,14 +128,27 @@ h1{
 
     font-size:clamp(2rem,5vw,3.5rem);
 
+
     margin-bottom:30px;
 
+
     color:#ffd6ff;
+
 
     text-shadow:
 
     0 0 10px #ff8de8,
+
     0 0 20px #ff8de8;
+
+}
+
+
+h2{
+
+    margin-bottom:20px;
+
+    color:#ffd6ff;
 
 }
 
@@ -135,27 +179,38 @@ button{
 
     margin:12px;
 
+
     padding:15px 35px;
+
 
     border:none;
 
+
     border-radius:50px;
+
 
     cursor:pointer;
 
+
     font-size:1.1rem;
+
 
     font-weight:bold;
 
 
     color:#360044;
 
+
     background:
 
     linear-gradient(
+
     135deg,
+
     #ff9de2,
+
     #d8a4ff
+
     );
 
 
@@ -174,7 +229,9 @@ button:hover{
 
 
     transform:
+
     translateY(-5px)
+
     scale(1.08);
 
 
@@ -182,6 +239,30 @@ button:hover{
 
     0 0 35px #ffb8ff;
 
+}
+
+
+
+
+
+
+
+/* =========================
+   BACKGROUND
+========================= */
+
+
+.background{
+
+    position:absolute;
+
+    width:100%;
+
+    height:100%;
+
+    overflow:hidden;
+
+    pointer-events:none;
 
 }
 
@@ -195,21 +276,6 @@ button:hover{
 ========================= */
 
 
-.background{
-
-    position:absolute;
-
-    width:100%;
-    height:100%;
-
-    overflow:hidden;
-
-    pointer-events:none;
-
-}
-
-
-
 .kuromi-sticker{
 
     position:absolute;
@@ -218,25 +284,29 @@ button:hover{
 
     opacity:.25;
 
+
     animation:
+
     float 6s infinite ease-in-out;
 
 }
 
 
 
+
 .sticker-one{
 
     top:5%;
+
     left:5%;
 
 }
 
 
-
 .sticker-two{
 
     top:15%;
+
     right:7%;
 
     animation-delay:2s;
@@ -244,10 +314,10 @@ button:hover{
 }
 
 
-
 .sticker-three{
 
     bottom:10%;
+
     left:8%;
 
     animation-delay:1s;
@@ -255,10 +325,10 @@ button:hover{
 }
 
 
-
 .sticker-four{
 
     bottom:5%;
+
     right:5%;
 
     animation-delay:3s;
@@ -275,7 +345,9 @@ button:hover{
     0%,100%{
 
         transform:
+
         translateY(0)
+
         rotate(-5deg);
 
     }
@@ -284,11 +356,12 @@ button:hover{
     50%{
 
         transform:
+
         translateY(-25px)
+
         rotate(5deg);
 
     }
-
 
 }
 
@@ -299,32 +372,42 @@ button:hover{
 
 
 /* =========================
-   PHOTO
+   PHOTO FIX
 ========================= */
 
 
 .main-photo{
 
 
-    width:min(70vw,300px);
+    width:auto;
+
+
+    max-width:70vw;
+
+
+    max-height:45vh;
+
+
+    object-fit:contain;
+
+
+    display:block;
+
+
+    margin:0 auto 25px;
+
 
     border-radius:25px;
 
 
-    border:
-
-    8px solid #ffc5ff;
+    border:8px solid #ffc5ff;
 
 
     box-shadow:
 
     0 0 40px #ff8df0;
 
-
-    margin-bottom:25px;
-
 }
-
 
 
 
@@ -339,9 +422,7 @@ button:hover{
 
 .proposal{
 
-    max-height:80vh;
-
-    overflow-y:auto;
+    max-height:85vh;
 
 }
 
@@ -358,12 +439,14 @@ button:hover{
 
 
 
+
 /* =========================
-   BLACK ENDING
+   BLACK END PAGE
 ========================= */
 
 
 .black-page{
+
 
     background:black;
 
@@ -372,6 +455,7 @@ button:hover{
 
 
 .black-page h1{
+
 
     color:white;
 
@@ -384,12 +468,15 @@ button:hover{
 
 
 
+
+
 /* =========================
    SPARKLES
 ========================= */
 
 
 .sparkles::before,
+
 .sparkles::after{
 
 
@@ -398,16 +485,20 @@ button:hover{
 
     position:absolute;
 
+
     width:100%;
+
 
     color:white;
 
+
     font-size:40px;
+
 
     opacity:.5;
 
-    animation:twinkle 3s infinite;
 
+    animation:twinkle 3s infinite;
 
 }
 
@@ -416,6 +507,7 @@ button:hover{
 .sparkles::before{
 
     top:20%;
+
 }
 
 
@@ -424,6 +516,8 @@ button:hover{
     bottom:20%;
 
 }
+
+
 
 
 
@@ -451,6 +545,7 @@ button:hover{
 
 
 
+
 /* =========================
    HEARTS
 ========================= */
@@ -464,11 +559,15 @@ button:hover{
 
     position:absolute;
 
+
     bottom:-50px;
+
 
     width:100%;
 
+
     text-align:center;
+
 
     font-size:35px;
 
@@ -478,6 +577,8 @@ button:hover{
     heartsUp 8s infinite linear;
 
 }
+
+
 
 
 
@@ -497,7 +598,6 @@ button:hover{
 
     }
 
-
 }
 
 
@@ -506,18 +606,76 @@ button:hover{
 
 
 
-/* MOBILE */
+/* =========================
+   MOBILE OPTIMIZATION
+========================= */
+
 
 @media(max-width:600px){
 
 
-    button{
 
-        padding:12px 25px;
+    .content{
+
+        width:92%;
+
+        padding:20px;
+
+        max-height:88vh;
+
+    }
+
+
+
+    h1{
+
+        font-size:2rem;
+
+        margin-bottom:20px;
+
+    }
+
+
+
+    p{
 
         font-size:1rem;
 
     }
+
+
+
+    .main-photo{
+
+
+        max-width:75vw;
+
+
+        max-height:35vh;
+
+
+        border-width:6px;
+
+    }
+
+
+
+    button{
+
+
+        width:80%;
+
+
+        padding:12px 20px;
+
+
+        margin:8px auto;
+
+
+        display:block;
+
+    }
+
 
 
     .kuromi-sticker{
