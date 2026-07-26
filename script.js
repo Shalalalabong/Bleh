@@ -5,6 +5,7 @@
 
 function nextPage(number){
 
+
     document
     .querySelectorAll(".page")
     .forEach(page=>{
@@ -14,193 +15,39 @@ function nextPage(number){
     });
 
 
-    document
-    .getElementById("page"+number)
-    .classList.add("active");
 
-
-}
+    const next =
+    document.getElementById("page"+number);
 
 
 
+    if(next){
 
-
-// ===============================
-// YES BUTTON REDIRECT
-// ===============================
-
-
-function yesRedirect(){
-
-    startConfetti();
-
-
-    setTimeout(()=>{
-
-
-        window.location.href =
-        "https://www.youtube.com/watch?v=NQp3cbSkqbo&list=RDNQp3cbSkqbo&start_radio=1";
-
-
-    },2500);
-
-
-}
-
-
-
-
-
-
-
-// ===============================
-// CONFETTI EFFECT
-// ===============================
-
-
-const canvas =
-document.createElement("canvas");
-
-
-canvas.id="confettiCanvas";
-
-
-document.body.appendChild(canvas);
-
-
-
-const ctx =
-canvas.getContext("2d");
-
-
-
-canvas.width =
-window.innerWidth;
-
-
-canvas.height =
-window.innerHeight;
-
-
-
-let pieces=[];
-
-
-
-function startConfetti(){
-
-
-    pieces=[];
-
-
-    for(let i=0;i<180;i++){
-
-
-        pieces.push({
-
-            x:
-            Math.random()*canvas.width,
-
-
-            y:
-            Math.random()*canvas.height
-            -canvas.height,
-
-
-            size:
-            Math.random()*8+4,
-
-
-            speed:
-            Math.random()*4+2,
-
-
-            color:
-            [
-            "#ff8de8",
-            "#c78cff",
-            "#ffffff",
-            "#ffd1f7"
-            ]
-            [
-            Math.floor(Math.random()*4)
-            ]
-
-        });
-
+        next.classList.add("active");
 
     }
 
 
-    animateConfetti();
-
-
 }
 
 
-
-
-
-function animateConfetti(){
-
-
-    ctx.clearRect(
-        0,
-        0,
-        canvas.width,
-        canvas.height
-    );
-
-
-    pieces.forEach(p=>{
-
-
-        ctx.fillStyle=p.color;
-
-
-        ctx.fillRect(
-            p.x,
-            p.y,
-            p.size,
-            p.size
-        );
-
-
-        p.y+=p.speed;
-
-
-        if(p.y>canvas.height){
-
-            p.y=-20;
-
-        }
-
-
-    });
-
-
-    requestAnimationFrame(
-        animateConfetti
-    );
-
-
-}
 
 
 
 
 
 // ===============================
-// TYPEWRITER EFFECT FOR PROPOSAL
+// PROPOSAL TYPEWRITER
 // ===============================
 
 
 const letterText =
-`Labubu too beo, way more than you ever could. Now since you're already here, I'd like to let you know that you're one of the most precious things that ever happened to me. I love you so much that even the universe with its infinite wisdom and eons of ancient lexicon struggles to put up a definition of just how inexplicably inconceivable that amount is. Hence, with all due dilly dally, would you let me call you my Beoberry? Would you be my girlfriend? Grant me the honor so I can proudly parade you around in front of everyone calling you mine while you'd agree to do the same until God does us part?`;
+
+"Labubu too beo, way more than you ever could. Now since you're already here, I'd like to let you know that you're one of the most precious things that ever happened to me. I love you so much that even the universe with its infinite wisdom and eons of ancient lexicon struggles to put up a definition of just how inexplicably inconceivable that amount is. Hence, with all due dilly dally, would you let me call you my Beoberry? Would you be my girlfriend? Grant me the honor so I can proudly parade you around in front of everyone calling you mine while you'd agree to do the same until God does us part?";
 
 
 
-let typed=false;
+let typed = false;
 
 
 
@@ -213,34 +60,36 @@ function typeLetter(){
     typed=true;
 
 
-    let box =
+    const box =
     document.getElementById("letter");
+
 
 
     if(!box) return;
 
 
 
-    let index=0;
+    let i=0;
 
 
 
-    function write(){
+    function typing(){
 
 
-        if(index < letterText.length){
+        if(i < letterText.length){
 
 
             box.innerHTML +=
-            letterText.charAt(index);
+            letterText.charAt(i);
 
 
-            index++;
+
+            i++;
 
 
             setTimeout(
-                write,
-                25
+                typing,
+                18
             );
 
 
@@ -250,7 +99,7 @@ function typeLetter(){
     }
 
 
-    write();
+    typing();
 
 
 }
@@ -259,20 +108,24 @@ function typeLetter(){
 
 
 
-// detect proposal page
+
+// Detect proposal page opening
 
 
 const observer =
+
 new MutationObserver(()=>{
 
 
-    let page7 =
-    document
-    .getElementById("page7");
+    const proposal =
+
+    document.getElementById("page7");
+
 
 
     if(
-    page7.classList.contains("active")
+        proposal &&
+        proposal.classList.contains("active")
     ){
 
         typeLetter();
@@ -285,12 +138,21 @@ new MutationObserver(()=>{
 
 
 observer.observe(
+
 document.body,
+
 {
+
     attributes:true,
+
     subtree:true,
+
     attributeFilter:["class"]
-});
+
+}
+
+);
+
 
 
 
@@ -299,51 +161,31 @@ document.body,
 
 
 // ===============================
-// MUSIC BUTTON
+// YES BUTTON
 // ===============================
 
 
-const music =
-document.getElementById("bgmusic");
+function yesRedirect(){
 
 
-const musicButton =
-document.getElementById("musicButton");
+    heartExplosion();
+
+
+    confetti();
 
 
 
-if(musicButton){
+    setTimeout(()=>{
 
 
-musicButton.onclick=()=>{
+        window.location.href =
+
+        "https://www.youtube.com/watch?v=NQp3cbSkqbo&list=RDNQp3cbSkqbo&start_radio=1";
 
 
-    if(music.paused){
 
+    },2500);
 
-        music.play();
-
-
-        musicButton.innerHTML=
-        "🔊 Music";
-
-
-    }
-
-    else{
-
-
-        music.pause();
-
-
-        musicButton.innerHTML=
-        "🎵 Music";
-
-
-    }
-
-
-};
 
 
 }
@@ -353,22 +195,288 @@ musicButton.onclick=()=>{
 
 
 
+
 // ===============================
-// RESIZE CANVAS
+// HEART EXPLOSION
+// ===============================
+
+
+function heartExplosion(){
+
+
+
+    for(let i=0;i<40;i++){
+
+
+        const heart =
+        document.createElement("div");
+
+
+
+        heart.innerHTML="💜";
+
+
+
+        heart.style.position="fixed";
+
+        heart.style.left="50%";
+
+        heart.style.top="50%";
+
+        heart.style.fontSize=
+
+        Math.random()*20+20+"px";
+
+
+        heart.style.zIndex="100";
+
+        heart.style.pointerEvents="none";
+
+
+
+        const x =
+        (Math.random()-0.5)*700;
+
+
+        const y =
+        (Math.random()-0.5)*700;
+
+
+
+        heart.animate(
+
+        [
+
+            {
+                transform:
+                "translate(0,0)",
+                opacity:1
+            },
+
+
+            {
+                transform:
+                `translate(${x}px,${y}px)`,
+                opacity:0
+            }
+
+        ],
+
+        {
+
+            duration:1500,
+
+            easing:"ease-out"
+
+        }
+
+
+        );
+
+
+
+        document.body.appendChild(heart);
+
+
+
+        setTimeout(()=>{
+
+            heart.remove();
+
+        },1600);
+
+
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+// ===============================
+// CONFETTI
+// ===============================
+
+
+function confetti(){
+
+
+    const canvas =
+    document.createElement("canvas");
+
+
+    canvas.id="confettiCanvas";
+
+
+    document.body.appendChild(canvas);
+
+
+
+    const ctx =
+    canvas.getContext("2d");
+
+
+
+    canvas.width =
+    window.innerWidth;
+
+
+    canvas.height =
+    window.innerHeight;
+
+
+
+    let pieces=[];
+
+
+
+    for(let i=0;i<250;i++){
+
+
+        pieces.push({
+
+
+            x:
+            Math.random()*canvas.width,
+
+
+            y:
+            Math.random()*canvas.height
+            -canvas.height,
+
+
+            size:
+            Math.random()*10+5,
+
+
+            speed:
+            Math.random()*5+2,
+
+
+            color:
+
+            [
+                "#ff9de2",
+                "#d8a4ff",
+                "#ffffff",
+                "#ffc8f5"
+            ]
+            [
+                Math.floor(
+                Math.random()*4
+                )
+            ]
+
+        });
+
+
+    }
+
+
+
+
+
+    function animate(){
+
+
+        ctx.clearRect(
+
+            0,
+            0,
+            canvas.width,
+            canvas.height
+
+        );
+
+
+
+        pieces.forEach(p=>{
+
+
+            ctx.fillStyle=p.color;
+
+
+            ctx.fillRect(
+
+                p.x,
+                p.y,
+                p.size,
+                p.size
+
+            );
+
+
+
+            p.y+=p.speed;
+
+
+
+            if(p.y>canvas.height){
+
+                p.y=-20;
+
+            }
+
+
+        });
+
+
+
+        requestAnimationFrame(animate);
+
+
+    }
+
+
+
+    animate();
+
+
+}
+
+
+
+
+
+
+
+// ===============================
+// RESIZE
 // ===============================
 
 
 window.addEventListener(
+
 "resize",
+
 ()=>{
 
 
-canvas.width=
-window.innerWidth;
+    const canvas =
+    document.getElementById("confettiCanvas");
 
 
-canvas.height=
-window.innerHeight;
+
+    if(canvas){
 
 
-});
+        canvas.width =
+        window.innerWidth;
+
+
+        canvas.height =
+        window.innerHeight;
+
+
+    }
+
+
+}
+
+);
