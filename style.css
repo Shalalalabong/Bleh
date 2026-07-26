@@ -10,10 +10,17 @@ body{
 
     width:100%;
     height:100vh;
+
     overflow:hidden;
 
     background:
-    radial-gradient(circle at top,#b45cff,#4b006e 45%,#120018);
+
+    radial-gradient(
+        circle at top,
+        #d88cff,
+        #680099 45%,
+        #120018
+    );
 
     color:white;
 
@@ -21,17 +28,82 @@ body{
 
 
 
-/* =========================
-   PAGE SYSTEM
-========================= */
+
+
+/* ==========================
+   BACKGROUND
+========================== */
+
+
+.background{
+
+    position:absolute;
+
+    inset:0;
+
+    overflow:hidden;
+
+    pointer-events:none;
+
+}
+
+
+
+.background::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+    radial-gradient(
+        circle,
+        rgba(255,255,255,.15) 1px,
+        transparent 2px
+    );
+
+    background-size:50px 50px;
+
+    animation:starsMove 20s linear infinite;
+
+}
+
+
+
+@keyframes starsMove{
+
+    from{
+
+        transform:translateY(0);
+
+    }
+
+    to{
+
+        transform:translateY(-100px);
+
+    }
+
+}
+
+
+
+
+
+/* ==========================
+   PAGES
+========================== */
 
 
 .page{
 
     position:absolute;
 
-    width:100%;
-    height:100%;
+    inset:0;
+
 
     display:flex;
 
@@ -39,7 +111,6 @@ body{
 
     align-items:center;
 
-    text-align:center;
 
     padding:20px;
 
@@ -48,14 +119,19 @@ body{
 
     pointer-events:none;
 
-    transform:scale(.96);
+
+    transform:
+
+    scale(.92)
+
+    translateY(20px);
 
 
     transition:
 
-    opacity .6s ease,
+    opacity .7s ease,
 
-    transform .6s ease;
+    transform .7s ease;
 
 }
 
@@ -67,7 +143,12 @@ body{
 
     pointer-events:auto;
 
-    transform:scale(1);
+
+    transform:
+
+    scale(1)
+
+    translateY(0);
 
 }
 
@@ -76,40 +157,81 @@ body{
 
 
 
-/* =========================
-   CONTENT BOX
-========================= */
+/* ==========================
+   CONTENT CARD
+========================== */
 
 
 .content{
 
+
     width:90%;
 
-    max-width:900px;
-
-    max-height:90vh;
+    max-width:850px;
 
 
-    padding:30px;
+    max-height:88vh;
 
 
     overflow-y:auto;
 
 
+    padding:35px;
+
+
+    border-radius:35px;
+
+
     background:
 
-    rgba(30,0,50,.45);
+    rgba(25,0,45,.55);
 
 
-    border-radius:30px;
+    backdrop-filter:
+
+    blur(15px);
 
 
-    backdrop-filter:blur(10px);
+    border:
+
+    2px solid rgba(255,200,255,.35);
 
 
     box-shadow:
 
-    0 0 40px rgba(255,150,255,.35);
+
+    0 0 40px rgba(255,130,240,.45),
+
+    inset 0 0 30px rgba(255,255,255,.08);
+
+
+    animation:
+
+    cardGlow 4s infinite;
+
+}
+
+
+
+@keyframes cardGlow{
+
+
+    0%,100%{
+
+        box-shadow:
+
+        0 0 40px rgba(255,130,240,.45);
+
+    }
+
+
+    50%{
+
+        box-shadow:
+
+        0 0 70px rgba(255,130,240,.75);
+
+    }
 
 }
 
@@ -117,38 +239,42 @@ body{
 
 
 
-
-
-/* =========================
+/* ==========================
    TEXT
-========================= */
+========================== */
 
 
 h1{
 
-    font-size:clamp(2rem,5vw,3.5rem);
+
+    font-size:
+
+    clamp(2rem,5vw,3.5rem);
 
 
-    margin-bottom:30px;
+    margin-bottom:25px;
 
 
-    color:#ffd6ff;
+    color:#ffe1ff;
 
 
     text-shadow:
 
+
     0 0 10px #ff8de8,
 
-    0 0 20px #ff8de8;
+    0 0 25px #ff8de8;
+
 
 }
 
 
+
 h2{
 
-    margin-bottom:20px;
-
     color:#ffd6ff;
+
+    margin-bottom:20px;
 
 }
 
@@ -156,11 +282,14 @@ h2{
 
 p{
 
-    font-size:1.2rem;
+
+    color:#fff2ff;
+
+
+    font-size:1.15rem;
+
 
     line-height:1.8;
-
-    color:#fff1ff;
 
 }
 
@@ -168,19 +297,20 @@ p{
 
 
 
-
-
-/* =========================
+/* ==========================
    BUTTONS
-========================= */
+========================== */
 
 
 button{
 
+
     margin:12px;
 
 
-    padding:15px 35px;
+    padding:
+
+    15px 40px;
 
 
     border:none;
@@ -198,28 +328,32 @@ button{
     font-weight:bold;
 
 
-    color:#360044;
+    color:#39004d;
 
 
     background:
 
+
     linear-gradient(
 
-    135deg,
+        135deg,
 
-    #ff9de2,
+        #ff9de2,
 
-    #d8a4ff
+        #cfa0ff
 
     );
 
 
+
     box-shadow:
 
-    0 0 20px rgba(255,150,255,.7);
+
+    0 0 20px #ff8de8;
 
 
-    transition:.3s;
+    transition:.35s;
+
 
 }
 
@@ -230,14 +364,27 @@ button:hover{
 
     transform:
 
-    translateY(-5px)
+
+    translateY(-6px)
 
     scale(1.08);
 
 
     box-shadow:
 
-    0 0 35px #ffb8ff;
+
+    0 0 45px #ffc2ff;
+
+}
+
+
+
+button:active{
+
+
+    transform:
+
+    scale(.95);
 
 }
 
@@ -247,47 +394,37 @@ button:hover{
 
 
 
-/* =========================
-   BACKGROUND
-========================= */
 
-
-.background{
-
-    position:absolute;
-
-    width:100%;
-
-    height:100%;
-
-    overflow:hidden;
-
-    pointer-events:none;
-
-}
-
-
-
-
-
-
-/* =========================
+/* ==========================
    KUROMI STICKERS
-========================= */
+========================== */
 
 
 .kuromi-sticker{
 
+
     position:absolute;
+
 
     width:120px;
 
-    opacity:.25;
+
+    opacity:.28;
+
+
+    filter:
+
+    drop-shadow(
+
+    0 0 15px #ff9df0
+
+    );
 
 
     animation:
 
-    float 6s infinite ease-in-out;
+    kuromiFloat 7s ease-in-out infinite;
+
 
 }
 
@@ -298,48 +435,50 @@ button:hover{
 
     top:5%;
 
-    left:5%;
+    left:4%;
 
 }
 
 
+
 .sticker-two{
 
-    top:15%;
+    top:10%;
 
-    right:7%;
+    right:5%;
 
     animation-delay:2s;
 
 }
 
 
+
 .sticker-three{
 
-    bottom:10%;
+    bottom:8%;
 
-    left:8%;
+    left:5%;
 
-    animation-delay:1s;
+    animation-delay:4s;
 
 }
+
 
 
 .sticker-four{
 
     bottom:5%;
 
-    right:5%;
+    right:7%;
 
-    animation-delay:3s;
+    animation-delay:1s;
 
 }
 
 
 
 
-
-@keyframes float{
+@keyframes kuromiFloat{
 
 
     0%,100%{
@@ -348,7 +487,7 @@ button:hover{
 
         translateY(0)
 
-        rotate(-5deg);
+        rotate(-8deg);
 
     }
 
@@ -357,9 +496,9 @@ button:hover{
 
         transform:
 
-        translateY(-25px)
+        translateY(-35px)
 
-        rotate(5deg);
+        rotate(8deg);
 
     }
 
@@ -371,9 +510,9 @@ button:hover{
 
 
 
-/* =========================
-   PHOTO FIX
-========================= */
+/* ==========================
+   PHOTO POLAROID
+========================== */
 
 
 .main-photo{
@@ -385,27 +524,66 @@ button:hover{
     max-width:70vw;
 
 
-    max-height:45vh;
+    max-height:42vh;
 
 
     object-fit:contain;
 
 
-    display:block;
+    padding:12px;
 
 
-    margin:0 auto 25px;
+    background:white;
 
 
-    border-radius:25px;
+    border-radius:10px;
 
 
-    border:8px solid #ffc5ff;
+    border:0;
 
 
     box-shadow:
 
-    0 0 40px #ff8df0;
+
+    0 0 35px #ff9df0;
+
+
+    transform:
+
+    rotate(-3deg);
+
+
+    animation:
+
+    photoFloat 5s infinite ease-in-out;
+
+}
+
+
+
+@keyframes photoFloat{
+
+
+    0%,100%{
+
+        transform:
+
+        rotate(-3deg)
+
+        translateY(0);
+
+    }
+
+
+    50%{
+
+        transform:
+
+        rotate(3deg)
+
+        translateY(-12px);
+
+    }
 
 }
 
@@ -414,15 +592,17 @@ button:hover{
 
 
 
-
-/* =========================
+/* ==========================
    PROPOSAL PAGE
-========================= */
+========================== */
 
 
 .proposal{
 
-    max-height:85vh;
+
+    background:
+
+    rgba(255,230,255,.08);
 
 }
 
@@ -430,7 +610,135 @@ button:hover{
 
 .proposal p{
 
+
     text-align:center;
+
+
+    font-size:1.25rem;
+
+
+}
+
+
+
+
+/* ==========================
+   SPARKLES
+========================== */
+
+
+.sparkles::before{
+
+
+    content:
+
+    "✦ ✧ ✦ ✧ ✦ ✧ ✦";
+
+
+    position:absolute;
+
+
+    width:100%;
+
+
+    top:20%;
+
+
+    text-align:center;
+
+
+    color:white;
+
+
+    font-size:45px;
+
+
+    animation:
+
+    sparkle 3s infinite;
+
+}
+
+
+
+@keyframes sparkle{
+
+
+    0%,100%{
+
+        opacity:.3;
+
+    }
+
+
+    50%{
+
+        opacity:1;
+
+    }
+
+}
+
+
+
+
+
+
+/* ==========================
+   FLOATING HEARTS
+========================== */
+
+
+.hearts::before{
+
+
+    content:
+
+    "💜 💕 💜 💕 💜";
+
+
+    position:absolute;
+
+
+    bottom:-60px;
+
+
+    width:100%;
+
+
+    text-align:center;
+
+
+    font-size:40px;
+
+
+    animation:
+
+    hearts 8s linear infinite;
+
+}
+
+
+
+@keyframes hearts{
+
+
+    from{
+
+        transform:
+
+        translateY(0);
+
+    }
+
+
+    to{
+
+        transform:
+
+        translateY(-120vh);
+
+    }
 
 }
 
@@ -440,9 +748,34 @@ button:hover{
 
 
 
-/* =========================
-   BLACK END PAGE
-========================= */
+/* ==========================
+   YES CELEBRATION CANVAS
+========================== */
+
+
+#confettiCanvas{
+
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    z-index:99;
+
+}
+
+
+
+
+
+
+
+
+/* ==========================
+   BLACK END
+========================== */
 
 
 .black-page{
@@ -459,84 +792,11 @@ button:hover{
 
     color:white;
 
+
     text-shadow:none;
 
-}
 
-
-
-
-
-
-
-
-/* =========================
-   SPARKLES
-========================= */
-
-
-.sparkles::before,
-
-.sparkles::after{
-
-
-    content:"✦ ✧ ✦ ✧ ✦";
-
-
-    position:absolute;
-
-
-    width:100%;
-
-
-    color:white;
-
-
-    font-size:40px;
-
-
-    opacity:.5;
-
-
-    animation:twinkle 3s infinite;
-
-}
-
-
-
-.sparkles::before{
-
-    top:20%;
-
-}
-
-
-.sparkles::after{
-
-    bottom:20%;
-
-}
-
-
-
-
-
-
-@keyframes twinkle{
-
-
-    0%,100%{
-
-        opacity:.2;
-
-    }
-
-
-    50%{
-
-        opacity:.8;
-
-    }
+    font-size:5rem;
 
 }
 
@@ -546,82 +806,20 @@ button:hover{
 
 
 
-/* =========================
-   HEARTS
-========================= */
-
-
-.hearts::before{
-
-
-    content:"💜 💕 💜 💕 💜";
-
-
-    position:absolute;
-
-
-    bottom:-50px;
-
-
-    width:100%;
-
-
-    text-align:center;
-
-
-    font-size:35px;
-
-
-    animation:
-
-    heartsUp 8s infinite linear;
-
-}
-
-
-
-
-
-@keyframes heartsUp{
-
-
-    from{
-
-        transform:translateY(0);
-
-    }
-
-
-    to{
-
-        transform:translateY(-120vh);
-
-    }
-
-}
-
-
-
-
-
-
-
-/* =========================
-   MOBILE OPTIMIZATION
-========================= */
+/* ==========================
+   MOBILE
+========================== */
 
 
 @media(max-width:600px){
 
 
-
     .content{
 
-        width:92%;
 
-        padding:20px;
+        padding:22px;
 
-        max-height:88vh;
+        width:94%;
 
     }
 
@@ -630,8 +828,6 @@ button:hover{
     h1{
 
         font-size:2rem;
-
-        margin-bottom:20px;
 
     }
 
@@ -651,10 +847,7 @@ button:hover{
         max-width:75vw;
 
 
-        max-height:35vh;
-
-
-        border-width:6px;
+        max-height:32vh;
 
     }
 
@@ -663,16 +856,13 @@ button:hover{
     button{
 
 
-        width:80%;
-
-
-        padding:12px 20px;
-
-
-        margin:8px auto;
-
-
         display:block;
+
+
+        width:85%;
+
+
+        margin:10px auto;
 
     }
 
@@ -680,7 +870,8 @@ button:hover{
 
     .kuromi-sticker{
 
-        width:80px;
+
+        width:75px;
 
     }
 
