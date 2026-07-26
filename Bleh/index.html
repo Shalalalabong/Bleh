@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Beoberry 💜</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&display=swap" rel="stylesheet">
+
+</head>
+
+
+<body>
+
+
+<!-- Background decorations -->
+
+<div class="background">
+
+    <img src="images/kuromi1.png" class="kuromi-sticker sticker-one">
+    <img src="images/kuromi2.png" class="kuromi-sticker sticker-two">
+    <img src="images/kuromi3.png" class="kuromi-sticker sticker-three">
+    <img src="images/kuromi4.png" class="kuromi-sticker sticker-four">
+
+    <div class="sparkles"></div>
+    <div class="hearts"></div>
+
+</div>
+
+
+
+<!-- PAGE 1 -->
+
+<div class="page active" id="page1">
+
+    <div class="content">
+
+        <h1>Hello There!</h1>
+
+        <button onclick="nextPage(2)">
+            proceed
+        </button>
+
+    </div>
+
+</div>
+
+
+
+
+<!-- PAGE 2 -->
+
+<div class="page" id="page2">
+
+    <div class="content">
+
+        <img src="images/photo.png" class="main-photo">
+
+        <h1>Was this person you?</h1>
+
+
+        <div>
+
+            <button onclick="nextPage(3)">
+                Yes
+            </button>
+
+
+            <button onclick="nextPage(3)">
+                Maybe Yes
+            </button>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+
+
+<!-- PAGE 3 -->
+
+<div class="page" id="page3">
+
+    <div class="content">
+
+
+        <h1>
+            Okay now are you Rayya or Beo?
+        </h1>
+
+
+        <button onclick="nextPage(4)">
+            Rayya
+        </button>
+
+
+        <button onclick="nextPage(5)">
+            Beo
+        </button>
+
+
+    </div>
+
+</div>
+
+
+
+
+
+
+<!-- PAGE 4 -->
+
+<div class="page" id="page4">
+
+    <div class="content">
+
+        <h1>
+            You really thought? 😼
+        </h1>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+<!-- PAGE 5 -->
+
+<div class="page" id="page5">
+
+    <div class="content">
+
+
+        <h1>
+            What would beo be into? Labubu or Kuromi?
+        </h1>
+
+
+        <button onclick="nextPage(7)">
+            Labubu
+        </button>
+
+
+        <button onclick="nextPage(6)">
+            Kuromi
+        </button>
+
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+<!-- PAGE 6 -->
+
+<div class="page" id="page6">
+
+    <div class="content">
+
+
+        <h1>
+            Accha you aren't completely wrong, try the other one-
+        </h1>
+
+
+        <button onclick="nextPage(5)">
+            retry
+        </button>
+
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- PAGE 7 -->
+
+<div class="page" id="page7">
+
+    <div class="content proposal">
+
+
+<p id="letter"></p>
+
+
+<button onclick="yesRedirect()">
+Yes
+</button>
+
+
+<button onclick="nextPage(8)">
+No I hate you
+</button>
+
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- PAGE 8 -->
+
+<div class="page black-page" id="page8">
+
+
+<h1>
+:')
+</h1>
+
+
+</div>
+
+
+
+
+
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>
